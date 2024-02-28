@@ -4,6 +4,12 @@
 
 ---
 
+`chapter`ごとにディレクトリを切って、そこに`main.dart`を作成してAppを動かすことも可能みたい...
+
+今回はそれで勉強する
+
+---
+
 # fulutter_app
 
 A new Flutter project.
