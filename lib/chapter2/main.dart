@@ -34,15 +34,31 @@ class MyHomePage extends StatefulWidget {
 
 // 上記で作成したWidgetに紐づくこのApp専用のStateを作成
 class _MyHomePageState extends State<MyHomePage> {
+  String _message = 'Hello!';
+
+  void _setMessage() {
+    // setStateはstateの変更をState class（今回は_MyHomePageState）に通知するメソッドで
+    // State classが備え持っているメソッド
+    setState(() {
+      _message = 'タップしました！';
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
-        body: Text(
-          widget.message,
-          style: TextStyle(fontSize: 32.0),
-        ));
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: Text(
+        _message,
+        style: TextStyle(fontSize: 32.0),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _setMessage,
+        tooltip: 'set message.',
+        child: Icon(Icons.star),
+      ),
+    );
   }
 }
