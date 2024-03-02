@@ -7,7 +7,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   final title = 'Flutter サンプル';
-  // final message = 'サンプル・メッセージ';
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +14,6 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       home: MyHomePage(
         title: this.title,
-        // message: this.message,
       ),
     );
   }
@@ -23,19 +21,20 @@ class MyApp extends StatelessWidget {
 
 // 動的に表示が切り替わるように、このApp専用のWidgetをWrapして作成
 class MyHomePage extends StatefulWidget {
-  // const MyHomePage({Key? key, required this.title, required this.message})
-  //     : super(key: key);
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+  // const MyHomePage({Key? key, required this.title}) : super(key: key);
+  // こうともできる
+  const MyHomePage({super.key, required this.title});
   final String title;
-  // final String message;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
+// 複数のデータを扱うためのクラスを定義
 class Data {
-  int _price;
-  String _name;
+  // final化することで、オブジェクト生成時にまで初期化を遅らせることできる(これはconstでは不可能)
+  final int _price;
+  final String _name;
 
   Data(this._price, this._name);
 
@@ -47,18 +46,20 @@ class Data {
 
 // 上記で作成したWidgetに紐づくこのApp専用のStateを作成
 class _MyHomePageState extends State<MyHomePage> {
-  // String _message = 'Hello!';
-
+  // テーブルドリブンのようにデータを用意
   static final _data = [
     Data(100, 'りんご'),
     Data(200, 'みかん'),
     Data(300, 'バナナ'),
   ];
 
+  // デフォルト値の設定
   Data _item = _data[0];
 
   void _setData() {
     setState(() {
+      // カスケード記法を用いることで
+      // _dataオブジェクトをfirstでの操作でも使わせることができる
       _item = (_data..shuffle()).first;
     });
   }
@@ -67,16 +68,17 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        // widgetはStatefulWidgetをWrapしたオブジェクトを返すgetter
         title: Text(widget.title),
       ),
       body: Text(
         _item.toString(),
-        style: TextStyle(fontSize: 32.0),
+        style: const TextStyle(fontSize: 32.0),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _setData,
         tooltip: 'set message.',
-        child: Icon(Icons.star),
+        child: const Icon(Icons.star),
       ),
     );
   }
