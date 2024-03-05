@@ -5,6 +5,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  // このkeyとはwidgetを識別するためのIDのようなものであり、
+  // 恐らくこれがあるお陰でサブクラスが親クラスのメソッド、フィールドを参照できる？
   const MyApp({Key? key}) : super(key: key);
   final title = 'Flutter サンプル';
 
@@ -23,6 +25,7 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   // const MyHomePage({Key? key, required this.title}) : super(key: key);
   // こうともできる
+  // keyについてはMyApp部分の説明と同じだろう...
   const MyHomePage({super.key, required this.title});
   final String title;
 
@@ -40,6 +43,7 @@ class Data {
 
   @override
   String toString() {
+    // テキストリテラル化しているので、文字列の連結ができる
     return '$_name : $_price 円';
   }
 }
