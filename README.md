@@ -16,6 +16,10 @@
 
 恐らくこれがあるお陰で**サブクラスが親クラスのメソッド、フィールドを参照できる？**
 
+なお`key`については[このような説明](https://github.com/hide0621/flutter_riverpod_practice?tab=readme-ov-file#key%E9%83%A8%E5%88%86%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)もあるが、
+
+同じことを言っているように思われる
+
 ---
 
 # fulutter_app
