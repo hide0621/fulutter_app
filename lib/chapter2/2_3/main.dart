@@ -39,6 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // この部分を追記しないとヘッダー部分のテーマデータの設定を反映できない
         backgroundColor: Theme.of(context).primaryColor,
       ),
+      // コンテナwidgetとは他のwidgetを自身の中に格納できるwidget
       body: Container(
         // コンテナwidgetの設定はこの部分に記述
         padding: const EdgeInsets.all(10.0),
