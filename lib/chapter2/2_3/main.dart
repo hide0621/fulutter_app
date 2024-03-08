@@ -39,8 +39,10 @@ class _MyHomePageState extends State<MyHomePage> {
         // この部分を追記しないとヘッダー部分のテーマデータの設定を反映できない
         backgroundColor: Theme.of(context).primaryColor,
       ),
-      body: const Center(
-        child: Text(
+      body: Container(
+        padding: const EdgeInsets.all(10.0),
+        alignment: Alignment.bottomCenter,
+        child: const Text(
           "Hello Flutter!",
           style: TextStyle(
               fontSize: 32.0,
