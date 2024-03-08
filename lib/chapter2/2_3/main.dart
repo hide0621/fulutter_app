@@ -40,6 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).primaryColor,
       ),
       body: Container(
+        // コンテナwidgetの設定はこの部分に記述
         padding: const EdgeInsets.all(10.0),
         alignment: Alignment.bottomCenter,
         child: const Text(
