@@ -12,11 +12,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Generated App',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        primaryColor: const Color(0xFF2196f3),
+        primarySwatch: Colors.pink,
+        primaryColor: const Color(0xFFe91e63),
         colorScheme: ThemeData()
             .colorScheme
-            .copyWith(secondary: const Color(0xFF2196f3)),
+            .copyWith(secondary: const Color(0xFFe91e63)),
         canvasColor: const Color(0xFFfafafa),
       ),
       home: const MyHomePage(),
@@ -36,6 +36,8 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('App Name'),
+        // この部分を追記しないとヘッダー部分のテーマデータの設定を反映できない
+        backgroundColor: Theme.of(context).primaryColor,
       ),
       body: const Text(
         "Hello Flutter!",
