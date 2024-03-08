@@ -39,13 +39,15 @@ class _MyHomePageState extends State<MyHomePage> {
         // この部分を追記しないとヘッダー部分のテーマデータの設定を反映できない
         backgroundColor: Theme.of(context).primaryColor,
       ),
-      body: const Text(
-        "Hello Flutter!",
-        style: TextStyle(
-            fontSize: 32.0,
-            color: Color(0xFF000000),
-            fontWeight: FontWeight.w700,
-            fontFamily: "Roboto"),
+      body: const Center(
+        child: Text(
+          "Hello Flutter!",
+          style: TextStyle(
+              fontSize: 32.0,
+              color: Color(0xFF000000),
+              fontWeight: FontWeight.w700,
+              fontFamily: "Roboto"),
+        ),
       ),
     );
   }
